@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">Statystyki</div>
+
+    <div class="col center">
+      <h3 class="center">Twoje Rezerwacje</h3>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <td scope="col">ID</td>
+            <td scope="col">Data</td>
+            <td scope="col">Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of $listOfReservations | async">
+            <td>
+              {{ reservation.id }}
+            </td>
+            <td>
+              {{ reservation.dateReservation | date: "medium" }}
+            </td>
+            <td>
+              {{ reservation.status }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

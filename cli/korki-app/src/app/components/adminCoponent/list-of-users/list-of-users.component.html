@@ -1,0 +1,28 @@
+<div class="center p-2">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <td scope="col">ID</td>
+        <td scope="col">Imie i nazwisko</td>
+        <td scope="col">Rola</td>
+        <td scope="col">Login</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of listOfStudents">
+        <td>
+          {{ student.id }}
+        </td>
+        <td>
+          {{ student.name }}
+        </td>
+        <td>
+          {{ student.role }}
+        </td>
+        <td>
+          {{ student.login }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

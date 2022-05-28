@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Imie i nazwisko</label
+        >
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          (ngModelChange)="changInput($event)"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Uwagi</label
+        >
+        <textarea class="form-control" id="addictionalData" rows="2"></textarea>
+      </div>
+      <div class="alert alert-info">
+        <strong *ngIf="clickedDate"
+          >Wybrana data: {{ clickedDate | date: "medium" }}</strong
+        >
+      </div>
+      <hr />
+      <div class="col-auto">
+        <button
+          type="submit"
+          class="btn btn-primary mb-3"
+          (click)="createReservation()"
+        >
+          Potwierdz lekcje
+        </button>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="alert alert-info">Kliknij na kalendarz i wybierz date</div>
+
+      <div [ngSwitch]="view">
+        <mwl-calendar-month-view
+          *ngSwitchCase="'month'"
+          [viewDate]="viewDate"
+          [events]="events"
+          (columnHeaderClicked)="clickedColumn = $event.isoDayNumber"
+          (dayClicked)="clickedDate = $event.day.date"
+          (dayClicked)="changeDay($event.day.date)"
+          disabled
+        >
+        </mwl-calendar-month-view>
+        <mwl-calendar-day-view
+          *ngSwitchCase="'day'"
+          [viewDate]="viewDate"
+          [events]="events"
+          (hourSegmentClicked)="clickedDate = $event.date"
+          (hourSegmentClicked)="addReservation()"
+        >
+        </mwl-calendar-day-view>
+      </div>
+    </div>
+  </div>
+</div>
