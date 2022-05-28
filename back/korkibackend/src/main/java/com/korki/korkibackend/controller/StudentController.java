@@ -29,13 +29,13 @@ public class StudentController {
         Student student = studentService.findStudentById(id);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add")
     public ResponseEntity<Student> getStudentById(@RequestBody Student student) {
         studentService.addStudent(student);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteStudentById(@PathVariable("id") Long id) {
         studentService.deleteStudent(id);
