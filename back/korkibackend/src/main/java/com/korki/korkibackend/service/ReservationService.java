@@ -35,4 +35,10 @@ public class ReservationService {
         reservation.setStudentCode(UUID.randomUUID().toString());
         reservationRepository.save(reservation);
     }
+    public void updateReservation(Reservation reservation) {
+        reservationRepository.save(reservation);
+    }
+    public void deleteReservation(Long id) {
+        reservationRepository.deleteById(id);
+    }
 }

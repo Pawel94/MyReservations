@@ -22,6 +22,7 @@ import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import { NavBarComponent } from './components/common/nav-bar/nav-bar.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { UserReservationsComponent } from './components/user-reservations/user-reservations.component';
+import { ListOfReservationsComponent } from './components/adminCoponent/list-of-reservations/list-of-reservations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { UserReservationsComponent } from './components/user-reservations/user-r
     NavBarComponent,
     UserPanelComponent,
     UserReservationsComponent,
+    ListOfReservationsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,14 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a
+      class="nav-link"
+      (click)="directToListOfReservations()"
+      aria-selected="false"
+      >Lista zajęć</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
       class="nav-link active"
       (click)="goToCreateStudent()"
       aria-selected="true"

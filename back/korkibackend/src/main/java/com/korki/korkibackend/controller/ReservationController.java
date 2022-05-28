@@ -21,7 +21,7 @@ public class ReservationController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
-    public ResponseEntity<List<Reservation>> getAllStudents() {
+    public ResponseEntity<List<Reservation>> getAllReservations() {
         List<Reservation> listOfStudents = reservationService.findAllReservations();
         return new ResponseEntity<>(listOfStudents, HttpStatus.OK);
     }
@@ -32,10 +32,25 @@ public class ReservationController {
         List<Reservation> listOfReservation = reservationService.findAllReservationsByStudentId(id);
         return new ResponseEntity<>(listOfReservation, HttpStatus.OK);
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add")
     public ResponseEntity<Reservation> getStudentById(@RequestBody Reservation reservation) {
         reservationService.addReservation(reservation);
         return new ResponseEntity<>(reservation, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/update")
+    public ResponseEntity<Reservation> updateReservation(@RequestBody Reservation reservation) {
+        reservationService.updateReservation(reservation);
+        return new ResponseEntity<>(reservation, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteReservation(@PathVariable("id") Long id) {
+        reservationService.deleteReservation(id);
+        return new ResponseEntity<>( HttpStatus.OK);
     }
 }

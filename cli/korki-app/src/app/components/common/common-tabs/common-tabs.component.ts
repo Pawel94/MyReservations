@@ -16,4 +16,7 @@ export class CommonTabsComponent implements OnInit {
   directToListOfUsers() {
     this.router.navigate(['listOfUsers'], { relativeTo: this.route });
   }
+  directToListOfReservations() {
+    this.router.navigate(['listOfReservations'], { relativeTo: this.route });
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentServiceService } from 'src/app/service/student-service.service';
-import { Student } from 'src/app/objects/Student';
+import { Student } from 'src/app/service/objects/Student';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({

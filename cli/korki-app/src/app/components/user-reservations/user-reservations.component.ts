@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Reservation } from 'src/app/objects/Reservation';
+import { Reservation } from 'src/app/service/objects/Reservation';
 import { ReservationServiceService } from 'src/app/service/reservation-service.service';
 
 @Component({

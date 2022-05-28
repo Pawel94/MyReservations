@@ -1,5 +1,7 @@
 package com.korki.korkibackend.model;
 
+import com.korki.korkibackend.enums.LessonState;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -11,13 +13,26 @@ public class Reservation implements Serializable {
     @Column(nullable = false)
     private Long id;
     private Long studentId;
+
+    public boolean isLessonState() {
+        return lessonState;
+    }
+
+
+    public void setReservationCode(String reservationCode) {
+        ReservationCode = reservationCode;
+    }
+
+    private boolean lessonState;
     private Date dateReservation;
     private String ReservationCode;
-    public Reservation(Long id, Long studentId, Date dateReservation,String reservationCode) {
+
+    public Reservation(Long id, Long studentId, Date dateReservation, String reservationCode, boolean lessonState) {
         this.id = id;
         this.studentId = studentId;
         this.dateReservation = dateReservation;
-        ReservationCode=reservationCode;
+        ReservationCode = reservationCode;
+        this.lessonState = lessonState;
     }
 
     public Long getId() {
@@ -26,6 +41,14 @@ public class Reservation implements Serializable {
 
     public Reservation() {
 
+    }
+
+    public void setLessonState(boolean lessonState) {
+        this.lessonState = lessonState;
+    }
+
+    public String getReservationCode() {
+        return ReservationCode;
     }
 
     public void setId(Long id) {
@@ -47,6 +70,7 @@ public class Reservation implements Serializable {
     public void setDateReservation(Date dateReservation) {
         this.dateReservation = dateReservation;
     }
+
     public void setStudentCode(String reservationCode) {
         ReservationCode = reservationCode;
     }

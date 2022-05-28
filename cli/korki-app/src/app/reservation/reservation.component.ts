@@ -13,7 +13,7 @@ import {
   addHours,
 } from 'date-fns';
 import { ReservationServiceService } from '../service/reservation-service.service';
-import { Reservation } from '../objects/Reservation';
+import { Reservation } from '../service/objects/Reservation';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
