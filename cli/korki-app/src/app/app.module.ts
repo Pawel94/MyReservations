@@ -23,6 +23,7 @@ import { NavBarComponent } from './components/common/nav-bar/nav-bar.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { UserReservationsComponent } from './components/user-reservations/user-reservations.component';
 import { ListOfReservationsComponent } from './components/adminCoponent/list-of-reservations/list-of-reservations.component';
+import { NotificationComponent } from './components/common/notification/notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { ListOfReservationsComponent } from './components/adminCoponent/list-of-
     UserPanelComponent,
     UserReservationsComponent,
     ListOfReservationsComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,

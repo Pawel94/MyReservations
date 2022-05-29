@@ -10,7 +10,8 @@ import { UtilsService } from 'src/app/service/utils.service';
   styleUrls: ['./list-of-reservations.component.scss'],
 })
 export class ListOfReservationsComponent implements OnInit {
-  public $listOfReservations?: Observable<Reservation[]>;
+  public $listOfReservations?: Observable<Reservation[]> =
+    this.reservationService.getAllReservations();
   constructor(
     private reservationService: ReservationServiceService,
     private utilsService: UtilsService
@@ -29,5 +30,6 @@ export class ListOfReservationsComponent implements OnInit {
   }
   deleteReservation(reservation: Reservation) {
     this.reservationService.deleteReservation(reservation);
+    this.ngOnInit();
   }
 }
