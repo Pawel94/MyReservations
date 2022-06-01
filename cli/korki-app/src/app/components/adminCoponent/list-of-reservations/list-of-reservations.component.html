@@ -1,61 +1,67 @@
 <app-notification></app-notification>
 <div class="container">
-  <app-notification></app-notification>
   <div class="row">
     <div class="col-2">Statystyki</div>
 
     <div class="col center">
-      <h3 class="center">Rezerwacje</h3>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <td scope="col">ID</td>
-            <td scope="col">Data</td>
-            <td scope="col">Uczen ID</td>
-            <td scope="col">Dane uczenia</td>
-            <td scope="col">Status</td>
-            <td scope="col">Zmien status</td>
-            <td scope="col">Usuń</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let reservation of $listOfReservations | async">
-            <td>
-              {{ reservation.id }}
-            </td>
-            <td>
-              {{ reservation.dateReservation | date: "medium" }}
-            </td>
-            <td>
-              {{ reservation.studentId }}
-            </td>
-            <td>
-              {{ reservation.studentId }}
-            </td>
-            <td>
-              {{ getStatus(reservation.lessonState) }}
-            </td>
-            <td>
-              <button class="btn btn-info" (click)="setStatus(reservation)">
-                <ng-container *ngIf="reservation.lessonState">
-                  <i-bs name="bookmark" width="100%" height="10"> </i-bs>
-                </ng-container>
-                <ng-container *ngIf="!reservation.lessonState"
-                  ><i-bs name="bookmark-fill" width="100%" height="10"> </i-bs
-                ></ng-container>
-              </button>
-            </td>
-            <td>
-              <button
-                class="btn btn-danger"
-                (click)="deleteReservation(reservation)"
-              >
-                <i-bs name="file-x" width="100%" height="15"> </i-bs>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div *ngIf="$listOfReservations | async; else loading">
+        <h3 class="center">Rezerwacje</h3>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <td scope="col">ID</td>
+              <td scope="col">Data</td>
+              <td scope="col">Uczen ID</td>
+              <td scope="col">Dane uczenia</td>
+              <td scope="col">Status</td>
+              <td scope="col">Zmien status</td>
+              <td scope="col">Usuń</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reservation of $listOfReservations | async">
+              <td>
+                {{ reservation.id }}
+              </td>
+              <td>
+                {{ reservation.dateReservation | date: "medium" }}
+              </td>
+              <td>
+                {{ reservation.studentId }}
+              </td>
+              <td>
+                {{ reservation.studentId }}
+              </td>
+              <td>
+                {{ getStatus(reservation.lessonState) }}
+              </td>
+              <td>
+                <button class="btn btn-info" (click)="setStatus(reservation)">
+                  <ng-container *ngIf="reservation.lessonState">
+                    <i-bs name="bookmark" width="100%" height="10"> </i-bs>
+                  </ng-container>
+                  <ng-container *ngIf="!reservation.lessonState"
+                    ><i-bs name="bookmark-fill" width="100%" height="10"> </i-bs
+                  ></ng-container>
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  (click)="deleteReservation(reservation)"
+                >
+                  <i-bs name="file-x" width="100%" height="15"> </i-bs>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #loading
+        ><div class="spinner-border text-primary" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
